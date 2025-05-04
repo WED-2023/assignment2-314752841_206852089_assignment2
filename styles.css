@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  min-width: 1366px;
+  min-height: 768px;
+  font-family: 'Orbitron', sans-serif;
+  background-color: black;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#game-container {
+  width: 1366px;
+  height: 768px;
+  background: rgba(0, 0, 0, 0.75); /* Semi-transparent dark */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+  position: relative; /* Corrected from 'center' */
+  overflow: hidden;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+
+.screen {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  color: #00ffff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.active {
+  display: block;
+}
+
+h1, h2 {
+  color: #00ffff;
+  text-shadow: 0 0 10px #00ffff;
+}
+
+.button-group {
+  margin-top: 40px;
+}
+
+button {
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #0ff, #08f);
+  color: black;
+  box-shadow: 0 0 15px #0ff;
+  margin: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #08f, #0ff);
+  box-shadow: 0 0 20px #0ff;
+}
+
+input {
+  width: 300px;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #0ff;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #00ffff;
+  margin: 10px 0;
+}
+
+input::placeholder {
+  color: #88ffff;
+}
+
+dialog {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.4);
+  background-color: black;
+  padding: 30px;
+  color: #00ffff;
+}
+
+#game-canvas {
+  background-color: black;
+  display: block;
+  margin: 0 auto;
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#game-screen {
+  background-image: url('assets/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+body.game-active {
+  overflow: hidden;
+}
+
+#gameTimer {
+  font-size: 24px;
+  text-shadow: 0 0 10px #0ff;
+}
+
+#scoreDisplay {
+  font-size: 24px;
+  text-shadow: 0 0 10px #0ff;
+}
+
+#livesDisplay {
+  font-size: 24px;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.game-over {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.95);
+  color: #00ffff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #0ff;
+  z-index: 1000;
+}

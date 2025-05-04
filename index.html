@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1366, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Space Invaders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="game-container">
+    
+    <!-- Main Menu Screen -->
+    <div id="main-menu" class="screen active">
+      <h1>Main Menu</h1>
+      <div class="button-group">
+        <button onclick="showScreen('register-screen')">Register</button>
+        <button onclick="showScreen('login-screen')">Login</button><br /><br />
+        <button onclick="openAboutModal()">About</button>
+        <h2>Our previous sites:</h2>
+        <button onclick="window.open('https://wed-2023.github.io/314752841/')">Michael's site</button>
+        <button onclick="window.open('https://wed-2023.github.io/206852089/')">Rotem's site</button><br /><br />
+        <h2>Our IDs:</h2>
+        <h3>Michael Livshits: 314752841</h3>
+        <h3>Rotem Atar: 206852089</h3><br /><br />
+      </div>
+    </div>
+
+    <!-- Register Screen -->
+    <div id="register-screen" class="screen">
+        <h1>Register</h1>
+        <form id="register-form">
+          <input type="text" id="username" placeholder="Username" /><br /><br />
+          <input type="password" id="password" placeholder="Password" /><br /><br />
+          <input type="password" id="confirm-password" placeholder="Confirm Password" /><br /><br />
+          <input type="text" id="first-name" placeholder="First Name" /><br /><br />
+          <input type="text" id="last-name" placeholder="Last Name" /><br /><br />
+          <input type="email" id="email" placeholder="Email" /><br /><br />
+          <label for="dob">Date of Birth:</label><br />
+          <input type="date" id="dob" /><br /><br />
+          <button type="submit">Register</button>
+          <button type="button" onclick="showScreen('main-menu')">Back</button>
+          <p id="register-error" style="color: red; margin-top: 0px;"></p>
+        </form>
+      </div>
+      
+    <!-- Login Screen -->
+    <div id="login-screen" class="screen">
+        <h1>Login</h1>
+        <form id="login-form">
+          <input type="text" id="login-username" placeholder="Username" /><br /><br />
+          <input type="password" id="login-password" placeholder="Password" /><br /><br />
+          <button type="submit">Login</button>
+          <button type="button" onclick="showScreen('main-menu')">Back</button>
+          <p id="login-error" style="color: red; margin-top: 10px;"></p>
+        </form>
+      </div>      
+
+    <!-- About Screen -->
+    <dialog id="about-modal">
+        <div style="position: relative; padding: 20px; max-width: 600px;">
+          <button id="close-about" style="position: absolute; top: 10px; right: 10px;">X</button>
+          <h2>About This Website</h2>
+          <p>
+            This custom game was developed by Michael Livshits & Rotem Atar<br /><br />
+
+            Instructions: <br />
+            - Use the left, right up and down arrow keys to move the spaceship. <br />
+            - Press the spacebar to shoot (or whatever key of your choosing). <br />
+            - The game ends when you run out of time or lose all your lives. <br /><br />
+
+            To play the game the user must register and login. <br />
+            After a successful login, the user can configure the game settings and start playing. <br />
+            At any point, pressing the 'F5' key will open the main menu.<br /><br />
+
+            Difficulties with the project: <br />
+            - Some features were difficult to implement, such as the progressive difficulty and a working leaderboard. <br />
+            - Styling the game to look / have a spacey vibe proved to be a challenge. <br />
+            - Changing the Enemy and Player sprites was difficult and we couldn't find a way to do it. <br /><br />
+            
+            Some features that we did not implement: <br />
+            - A personal leaderboard to show the top scores. <br />
+            - Progressive difficulty levels. <br />
+            - The enemy and player ship's sprites were supposed to be changed but we couldn't do it. <br /><br />
+
+            We hope you enjoy the game!
+          </p>
+        </div>
+      </dialog>
+    
+      
+    <div id="configScreen" class="screen">
+      <h2>Game Configuration</h2>
+    
+      <label for="fireKey">Choose Fire Key:</label>
+      <input type="text" id="fireKey" maxlength="1" placeholder="single digit, leave empty for space" />
+    
+      <label for="minTime">Minimum Game Time (seconds):</label>
+      <input type="number" id="minTime" min="120" value="120" />
+      
+      <br /><br />
+      <button id="startGameBtn">Start Game</button>
+    </div>
+      
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <canvas id="game-canvas" width="1366" height="768"></canvas>
+        <div id="gameTimer" style="position: absolute; top: 30px; right: 10px; color: white; font-size: 20px;">
+          Time: 00:00
+        </div>   
+        <div id="scoreDisplay" style="position: absolute; top: 30px; left: 10px; color: white; font-size: 20px;">
+          Score: 0
+        </div>   
+        <div id="livesDisplay" style="position: absolute; top: 60px; left: 10px; color: white; font-size: 20px;">
+          Lives: 3
+    </div>
+
+    <!-- Game Over Screen -->  
+    <div id="gameOverScreen" style="display:none;" class="game-over">
+        <h1 id="gameOverText">Game Over</h1>
+        <p id="finalScore">Score: 0</p>
+        <button onclick="startGame()">Restart</button>
+    </div>
+      
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
